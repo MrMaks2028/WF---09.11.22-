@@ -31,20 +31,16 @@ namespace WF____09._11._22_
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\form.txt";
             var reader = new StreamReader(path);
-            string line;
-            while ((line = reader.ReadLine()) != null)
-            {
-                label1.Text += line;
-            }
+            label1.Text = reader.ReadLine();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             //var mSize = SystemInformation.PrimaryMonitorSize;
-            var actualSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            //var actualSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
             //int width = mSize.Width;
             //int height = mSize.Height;
-            labelResolution.Text = $"\n Активная область:" + $"\nШирина = {actualSize.Width}, высота = {actualSize.Height}";
-            //myFormSize();
+            //labelResolution.Text = $"\n Активная область:" + $"\nШирина = {actualSize.Width}, высота = {actualSize.Height}";
+           // myFormSize();
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
@@ -105,14 +101,14 @@ namespace WF____09._11._22_
         private void timer1_Tick(object sender, EventArgs e)
         {
             runString();
-            //if (label1.Left > -label1.Width)
-            //{
-            //    label1.Left -= 5;
-            //}
-            //else
-            //{
-            //    label1.Left = panel1.Width;
-            //}
+            if (label1.Left > -label1.Width)
+            {
+                label1.Left -= 5;
+            }
+            else
+            {
+                label1.Left = this.Width;
+            }
         }
     }
 }
